@@ -51,11 +51,6 @@ export MANPATH
 INFOPATH=/usr/local/info:$INFOPATH
 export INFOPATH
 
-# Play! Framework
-PLAY_HOME=~/dev/Project/sandbox/play/play-1.0-stable3
-export PLAY_HOME
-export PATH=$PLAY_HOME:$PATH
-
 # Mysql
 export MYSQL_HOME=/usr/local/mysql
 export PATH=$MYSQL_HOME/bin:$PATH
