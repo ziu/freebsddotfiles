@@ -18,6 +18,7 @@ alias duh="du -h ./ --max-depth=1"
 alias su="su -l"
 
 # vim
+alias v='vim'
 alias 'src'='exec zsh'
 alias -g V="| vim -"
 
@@ -100,4 +101,5 @@ extract () {
 alias ex='extract'
 
 alias ev='vi ~/dotfiles/.vimrc*'
+alias be='bundle exec'
 
