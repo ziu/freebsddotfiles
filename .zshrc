@@ -93,6 +93,7 @@ case ${UID} in
     }
     add-zsh-hook precmd _update_vcs_info_msg
 
+    # show status of git pushed to HEAD in prompt
     function _git_not_pushed()
     {
       if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
@@ -103,12 +104,48 @@ case ${UID} in
             return 0
           fi
         done
-        echo "{?}"
+        echo "|?"
       fi
       return 0
     }
 
-    RPROMPT="%1(v|%F${CYAN}%1v%2v%f|)${vcs_info_git_pushed}${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)${WHITE}]${RESET}"
+    # git のブランチ名 *と作業状態* を zsh の右プロンプトに表示＋ status に応じて色もつけてみた - Yarukidenized:ヤルキデナイズド :
+    # http://d.hatena.ne.jp/uasi/20091025/1256458798
+    autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+
+    function rprompt-git-current-branch {
+      local name st color gitdir action pushed
+      if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+              return
+      fi
+
+      name=`git rev-parse --abbrev-ref=loose HEAD 2> /dev/null`
+      if [[ -z $name ]]; then
+              return
+      fi
+
+      gitdir=`git rev-parse --git-dir 2> /dev/null`
+      action=`VCS_INFO_git_getaction "$gitdir"` && action="|$action"
+      pushed="`_git_not_pushed`"
+
+      st=`git status 2> /dev/null`
+      if [[ "$st" =~ "(?m)^nothing to" ]]; then
+        color=%F{green}
+      elif [[ "$st" =~ "(?m)^nothing added" ]]; then
+        color=%F{yellow}
+      elif [[ "$st" =~ "(?m)^# Untracked" ]]; then
+        color=%B%F{red}
+      else
+        color=%F{red}
+      fi
+
+      echo "[$color$name$action$pushed%f%b]"
+    }
+
+    # PCRE 互換の正規表現を使う
+    setopt re_match_pcre
+
+    RPROMPT='`rprompt-git-current-branch`${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)${WHITE}]${RESET}'
 
     ;;
 esac
@@ -452,7 +489,7 @@ esac
 export EDITOR=vim
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
 export PATH=$PATH:$HOME/dotfiles/bin
-export PATH=$PATH:/sbin:usr/local/bin
+export PATH=$PATH:/sbin:/usr/local/bin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
 
 expand-to-home-or-insert () {
