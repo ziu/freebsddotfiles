@@ -144,7 +144,7 @@ call vundle#rc()
   Bundle 'SQLUtilities'
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-  Bundle 'ruby.vim'
+  Bundle 'vim-ruby/vim-ruby'
 
   " rails.vim : rails的なアレ
   Bundle 'tpope/vim-rails'
@@ -154,6 +154,9 @@ call vundle#rc()
 
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   Bundle 'taglist.vim'
+
+  " エラーがある場所をhilight
+  Bundle 'errormarker.vim'
 
   " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
   " Bundle 'Source-Explorer-srcexpl.vim'
