@@ -150,15 +150,6 @@ case ${UID} in
     ;;
 esac
 
-#case "$TERM" in
-#    xterm*|kterm*|rxvt*)
-#    PROMPT=$(print "%B%{\e[34m%}%m:%(5~,%-2~/.../%2~,%~)%{\e[33m%}%# %b") PROMPT=$(print "%{\e]2;%n@%m: %~\7%}$PROMPT") # title bar
-#    ;;
-#    *)
-#    PROMPT='%m:%c%# '
-#    ;;
-#esac
-
 # 指定したコマンド名がなく、ディレクトリ名と一致した場合 cd する
 setopt auto_cd
 
