@@ -33,8 +33,8 @@
   pof = push -f origin      # force
   pu  = push -u origin      # push origin and set upstream
   # rebase
-  rbm = rebase master       # masterへのrebaseはよく使うのでalias
-  rbd = rebase develop
+  rbm = rebase --merge master       # masterへのrebaseはよく使うのでalias
+  rbd = rebase --merge develop
   rbc = rebase --continue
   rba = rebase --abort
   rbi = rebase -i
