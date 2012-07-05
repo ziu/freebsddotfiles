@@ -44,7 +44,10 @@ alias srr='screen -U -D -RR'
 # tmux
 alias tm='tmux'
 alias tma='tmux attach'
-alias tml='tmux list-window'
+alias tma0='tmux attach -t 0'
+alias tma1='tmux attach -t 1'
+alias tma2='tmux attach -t 2'
+alias tml='tmux list-sessions'
 
 alias pon='predict-on'
 alias poff='predict-off'
