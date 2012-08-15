@@ -73,7 +73,7 @@ alias erl='nocorrect erl'
 alias sbcl='nocorrect sbcl'
 alias gosh='nocorrect gosh'
 alias node='nocorrect node'
-alias hg='nocorrect hg --encoding=utf-8'
+# alias hg='nocorrect hg --encoding=utf-8'
 
 # scala
 alias scala='scala -deprecation -unchecked -explaintypes'
