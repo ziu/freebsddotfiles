@@ -132,3 +132,12 @@ let g:neocomplcache_include_suffixes = {
   \ 'ruby' : '.rb',
   \ 'haskell' : '.hs'
   \ }
+
+" for rsense
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:rsenseUseOmniFunc = 1
+let g:rsenseHome = expand('~/src/rsense-0.3')
+
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
