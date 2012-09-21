@@ -416,3 +416,39 @@ nmap <C-A> <Plug>ToggleN
 vmap <C-A> <Plug>ToggleV
 
 let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
+
+
+
+"------------------------------------
+" vim-rails.vim
+"------------------------------------
+let g:rails_some_option = 1
+let g:rails_level = 4
+let g:rails_syntax = 1
+let g:rails_statusline = 1
+let g:rails_url='http://localhost:3000'
+let g:rails_subversion=0
+" let g:dbext_default_SQLITE_bin = 'mysql2'
+let g:rails_default_file='config/database.yml'
+" let g:rails_ctags_arguments = ''
+function! SetUpRailsSetting()
+  nmap <buffer><C-C> <Nop>
+  imap <buffer><C-C> <Nop>
+  map <buffer><C-_><C-C> <Nop>
+
+  nmap <buffer><Space>r :R<CR>
+  nmap <buffer><Space>a :A<CR>
+  nmap <buffer><Space>m :Rmodel<Space>
+  nmap <buffer><Space>c :Rcontroller<Space>
+  nmap <buffer><Space>v :Rview<Space>
+  nmap <buffer><Space>s :Rspec<Space>
+  nmap <buffer><Space>p :Rpreview<CR>
+  nmap <buffer><Space>t :Runittest<CR>
+  au FileType ruby,eruby,ruby.rspec let g:neocomplcache_dictionary_filetype_lists = {
+        \'ruby' : $HOME.'/.vim/dict/rails.dict',
+        \'eruby' : $HOME.'/.vim/dict/rails.dict'
+        \}
+  setl dict+=~/.vim/dict/rails.dict
+  setl dict+=~/.vim/dict/ruby.dict
+endfunction
+autocmd User Rails call SetUpRailsSetting()
