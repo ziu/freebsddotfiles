@@ -113,6 +113,8 @@
   cherry-ticket-numbers = "!f() { git cherry -v "$@" | cut -b 44- | awk 'match($0, /#[0-9]+/) {print substr($0, RSTART, RLENGTH)}' | sort -u ;}; f"
   # cherr -vに含まれるチケットを列挙する
   cherry-tickets = "!f() { git cherry -v "$@" | cut -b 44- | awk 'match($0, /#[0-9]+/) {print substr($0, RSTART+1, RLENGTH-1)}' | sort -u | xargs git issue --oneline  ;}; f"
+  # colorized cheery -v
+  cch= "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
 
   # grep関連
   gr = grep
