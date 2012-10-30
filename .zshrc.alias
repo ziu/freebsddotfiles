@@ -32,6 +32,9 @@ alias raket='RAILS_ENV=test rake'
 alias raked='RAILS_ENV=development rake'
 alias rakep='RAILS_ENV=production rake'
 
+# colorized cat
+alias ccat='pygmentize -O style=vim -f console256 -g'
+
 # less
 alias less='less -r'
 
