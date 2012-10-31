@@ -278,6 +278,11 @@ call vundle#rc()
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
 
+  " Redmine on Vim
+  NeoBundle 'mattn/vim-metarw-redmine'
+
+  " A framework to read/write fake:path
+  NeoBundle 'kana/vim-metarw'
 
 " }}}
 
