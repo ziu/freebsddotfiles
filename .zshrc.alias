@@ -21,6 +21,7 @@ alias su="su -l"
 alias v='vim'
 alias 'src'='exec zsh'
 alias -g V="| vim -"
+alias -g EV="| xargs --verbose sh -c 'vim \"\$@\" < /dev/tty'"
 
 # rails
 alias -g RET="RAILS_ENV=test"
