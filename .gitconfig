@@ -144,6 +144,8 @@
   fhp = flow hotfix publish
   fs  = flow support
 
+  fizzbuzz = "!f() { seq "$@" | awk '$0=NR%15?NR%5?NR%3?$0:\"Fizz\":\"Buzz\":\"FizzBuzz\"' ;}; f"
+
 [http]
   sslVerify = false
 
