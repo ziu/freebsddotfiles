@@ -26,6 +26,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 # デフォルトエンコーディングSJISをUTF-8へ
 export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
 
+# haskell
+export PATH=/Users/ozaki/Library/Haskell/bin:$PATH
 
 # scala
 export SCALA_HOME=/Users/ozaki/.svm/current/rt
