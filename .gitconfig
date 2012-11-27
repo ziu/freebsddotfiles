@@ -17,8 +17,11 @@
   quotepath = false
 [merge]
   tool = vimdiff
+  ff = false
 [branch]
   autosetuprebase = always
+[pull]
+  rebase = true
 [alias]
   s   = status
   st  = status
