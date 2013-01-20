@@ -144,9 +144,9 @@ case ${UID} in
     }
 
     # PCRE 互換の正規表現を使う
-    setopt re_match_pcre
+    #setopt re_match_pcre
 
-    RPROMPT='`rprompt-git-current-branch`${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)${WHITE}]${RESET}'
+    #RPROMPT='`rprompt-git-current-branch`${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)${WHITE}]${RESET}'
 
     ;;
 esac

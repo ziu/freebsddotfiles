@@ -98,10 +98,12 @@ endif
   " NeoBundle 'AutoComplPop'
 
   " 補完 neocomplcache.vim : 究極のVim的補完環境
-  NeoBundle 'Shougo/neocomplcache'
+  "NeoBundle 'Shougo/neocomplcache'
+  NeoBundle 'Shougo/neocomplcache.git'
 
   " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neocomplcache-snippets-complete'
+  "NeoBundle 'Shougo/neocomplcache-snippets-complete'
+  NeoBundle 'Shougo/neosnippet.git'
 
   " for rsense
   NeoBundle 'm2ym/rsense'
@@ -238,7 +240,7 @@ endif
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
 
@@ -276,7 +278,7 @@ endif
   NeoBundle 'tpope/vim-fugitive'
 
   " ステータスラインをカッコよくする
-  NeoBundle 'Lokaltog/vim-powerline'
+  "NeoBundle 'Lokaltog/vim-powerline'
 
   " Redmine on Vim
   NeoBundle 'mattn/vim-metarw-redmine'
